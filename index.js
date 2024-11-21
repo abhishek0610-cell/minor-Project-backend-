@@ -39,7 +39,11 @@ const userRoutes = require('./routes/userRoutes');
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: 'https://minor-project-front.vercel.app',
+  methods: [ 'POST'], // Allow specific methods
+  credentials: true // If you're using cookies or auth headers
+}));
 app.use(express.json());
 
 // Connect to MongoDB
